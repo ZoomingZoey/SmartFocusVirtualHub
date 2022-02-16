@@ -1,5 +1,5 @@
 // Import react hooks
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Import react-bootstrap components
 import {
@@ -9,10 +9,10 @@ import {
   Button
  } from 'react-bootstrap';
 
-const About = () => {
+const NewsAndEvents = () => {
   return (
     <>
-      <h2 className="mt-5 text-center">About</h2>
+      <h2 className="mt-5 text-center">News and Events</h2>
       <Container fluid>
         
       </Container>
@@ -20,4 +20,4 @@ const About = () => {
   );
 }
  
-export default About;
+export default NewsAndEvents;

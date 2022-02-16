@@ -9,10 +9,10 @@ import {
   Button
  } from 'react-bootstrap';
 
-const About = () => {
+const ExpertiseAndResearch = () => {
   return (
     <>
-      <h2 className="mt-5 text-center">About</h2>
+      <h2 className="mt-5 text-center">Expertise and Research</h2>
       <Container fluid>
         
       </Container>
@@ -20,4 +20,4 @@ const About = () => {
   );
 }
  
-export default About;
+export default ExpertiseAndResearch;
