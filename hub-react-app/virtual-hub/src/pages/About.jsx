@@ -23,7 +23,6 @@ const About = () => {
       <HubNavBar/>
       <h2 className="mt-5 text-center">About us</h2>
       <Container fluid>
-        
       </Container>
     </>
   );

@@ -15,7 +15,7 @@ import HubNavBar from '../components/HubNavBar';
 const Home = () => {
   // Set page title on mount
   useEffect(() => {
-    document.title = "Smart Focus";
+    document.title = "Smart Focus - Finding smarter, sustainable solutions today";
   }, []);
   
   return (
