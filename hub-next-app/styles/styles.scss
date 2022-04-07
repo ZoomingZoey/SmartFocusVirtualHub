@@ -1,0 +1,9 @@
+// Import custom bootstrap
+@use './custom';
+
+// Import scss component styling
+@use './components/post';
+@use './components/image-header';
+
+// import fonts
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Fredoka:wght@300;400;500;600;700&display=swap');
