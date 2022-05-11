@@ -2,6 +2,10 @@ import Head from 'next/head';
 
 import HubNavBar from '../../components/HubNavBar';
 import ImageHeader from '../../components/ImageHeader';
+import PersonOrBusinessCardGrid from '../../components/PersonOrBusinessCardGrid';
+import Footer from '../../components/Footer';
+import { fetchAPI } from '../../lib/api';
+const qs = require('qs');
 
 // Import react-bootstrap components
 import {
@@ -11,7 +15,7 @@ import {
   Button
  } from 'react-bootstrap';
 
-const TechnologyCluster = () => {
+const TechnologyCluster = ({ partners }) => {
   return (
     <>
       <Head>
@@ -20,16 +24,74 @@ const TechnologyCluster = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HubNavBar/>
-      <ImageHeader size="sm" url="/images/banners/banner-home.jpg">
+      <ImageHeader size="sm" url="/images/banners/banner-technology-cluster.png">
         <div className='d-flex justify-content-center align-items-center w-100' style={{height: '85%'}}>
           <h1 className='text-white text-center intro-heading d-block'>Technology Cluster</h1>
         </div>
       </ImageHeader>
-      <Container fluid>
-
+      <Container>
+        <section className='mt-5'>
+          <p className='main-lead'>
+            Our technologies are enabling the digital revolution in food production, environmental conservation and many other areas of our lives.
+          </p>
+          <p className='main-lead'>
+            Data is available everywhere, embedded in every part of our lives. We believe data is the key to making a more sustainable world - from understanding what consumers want, to enhancing the soil, tracking food through production and the supply chain so  consumers receive food with a focus on net zero emissions through carbon capture or minimising carbon emissions.
+          </p>
+          <p className='main-lead'>
+            We create new technologies that can be incorporated across the food production chain. Technologies can analyse soils, fruits and vegetables for sorting and grading, as well as identify the best way to package, store and distribute products. 
+          </p>
+          <p className='main-lead'>
+            We facilitate new technologies with embedded artificial intelligence, whether you need to track the growth and health of horticultural products, the environment fish in the ocean, find a single insect in a shipping container, or identify diseased plants in an orchard. 
+          </p>
+          <p className='main-lead'>
+            The capabilities we wish to enhance in our community include:
+          </p>
+          <ul>
+            <li><p className='main-lead'>Sensing technologies</p></li>
+            <li><p className='main-lead'>Crop optimisation</p></li>
+            <li><p className='main-lead'>Environmental sustainability</p></li>
+            <li><p className='main-lead'>Digital skills</p></li>
+            <li><p className='main-lead'>Environmental management systems</p></li>
+          </ul>
+        </section>
+        <section>
+          <h2 className='text-center mt-5 mb-3 heading-lg'>People and businesses in this cluster</h2>
+          <PersonOrBusinessCardGrid entries={partners}/>
+        </section>
       </Container>
+      <Footer/>
     </>
   );
 }
  
 export default TechnologyCluster;
+
+export async function getStaticProps() {
+  const query = qs.stringify({
+    populate: {
+      clusters: {
+        fields: ['name']
+      },
+      image: {
+        fields: ['url']
+      }
+    },
+    filters: {
+      clusters: {
+        name: {
+          $eq: 'Technology'
+        }
+      },
+    },
+  }, {
+    encodeValuesOnly: true,
+  });
+  const request = `/partners?${query}`;
+  const partners = await fetchAPI(request);
+
+  return {
+    props: {
+      partners
+    }
+  }
+}

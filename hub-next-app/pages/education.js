@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import HubNavBar from '../components/HubNavBar';
 import ImageHeader from '../components/ImageHeader';
+import Footer from '../components/Footer';
 
 // Import react-bootstrap components
 import {
@@ -28,6 +29,7 @@ const Education = () => {
       <Container fluid>
 
       </Container>
+      <Footer/>
     </>
   );
 }

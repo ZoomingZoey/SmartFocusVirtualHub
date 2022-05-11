@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_article_contents_article_videos",
+  "info": {
+    "displayName": "ArticleVideo",
+    "icon": "play-circle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "caption": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

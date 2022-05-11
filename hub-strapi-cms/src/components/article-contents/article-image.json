@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_article_contents_article_images",
+  "info": {
+    "displayName": "ArticleImage",
+    "icon": "image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    "caption": {
+      "type": "text",
+      "unique": false
+    },
+    "alt_text": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    }
+  }
+}

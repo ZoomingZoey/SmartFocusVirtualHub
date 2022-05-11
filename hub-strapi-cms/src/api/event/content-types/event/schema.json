@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "thumbnail_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "header_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "article-contents.article-image",
+        "article-contents.article-text"
+      ],
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "content_type": {
+      "type": "string",
+      "required": true,
+      "default": "event"
+    },
+    "clusters": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cluster.cluster",
+      "inversedBy": "events"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "organiser": {
+      "type": "string"
+    },
+    "event_website": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

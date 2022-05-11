@@ -1,0 +1,23 @@
+@use './custom' as *;
+
+* {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background-color: $gray-200;
+}
+
+p {
+  font-size: 18px;
+  @include media-breakpoint-up(sm) {
+    font-size: 20px;
+  }
+}
+
+.next-image-wrapper {
+  span {
+    border-radius: 5px;
+  }
+}

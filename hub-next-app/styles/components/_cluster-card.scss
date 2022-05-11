@@ -1,0 +1,13 @@
+@use '../custom' as *;
+
+.cluster-card {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+  }
+}

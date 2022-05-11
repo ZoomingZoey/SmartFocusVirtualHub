@@ -1,0 +1,10 @@
+@use '../custom' as *;
+
+.form-section {
+  background-color: $gray-100;
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}

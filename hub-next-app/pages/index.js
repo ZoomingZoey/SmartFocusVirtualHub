@@ -1,18 +1,22 @@
 import Head from 'next/head';
-import Image from 'next/image';
+import Link from 'next/link';
 
 import HubNavBar from '../components/HubNavBar';
 import ImageHeader from '../components/ImageHeader';
+import ClusterCard from '../components/ClusterCard';
+import ArticleCardGrid from '../components/ArticleCardGrid';
+import Footer from '../components/Footer';
+
+import { fetchAPI, sortArticlesByDate, getTop4Articles } from '../lib/api';
+const qs = require('qs');
 
 // Import react-bootstrap components
 import {
   Container,
-  Row,
-  Col,
   Button
  } from 'react-bootstrap';
 
-const Home = () => {
+const Home = ({ research_papers, case_studies, news_events_and_podcasts }) => {
   return (
     <>
       <Head>
@@ -26,17 +30,103 @@ const Home = () => {
           <div className='d-flex flex-column justify-content-center align-items-center'>
             <h1 className='text-white text-center intro-heading d-block mb-3'>Finding smarter, sustainable solutions today.</h1>
             <div className='d-flex justify-content-around' style={{maxWidth: '250px', width: '100%'}}>
-              <Button variant='primary' className='px-4' size='lg'>Login</Button>
-              <Button variant='warning' className='px-4' size='lg'>Sign up</Button>
+              <Link href="/login" passHref><Button variant='primary' className='px-4' size='lg'>Login</Button></Link>
+              <Link href="/signup" passHref><Button variant='warning' className='px-4' size='lg'>Sign up</Button></Link>
             </div>
           </div>
         </div>
       </ImageHeader>
-      <Container fluid>
-
+      <Container>
+        <section>
+          <h2 className='text-center mt-5 mb-3 heading-lg'>What we do</h2>
+          <p className='main-lead my-3'>
+            Finding smarter, sustainable solutions today, we're helping create the world we want to live in tomorrow. 
+          </p>
+          <p className='main-lead my-3'>
+            Our purpose is to grow entrepreneurial science, environmental and technology capacity in the community through cluster development.
+          </p>
+          <p className='main-lead my-3'>
+            With our partners, we grow our community’s people and supporting entrepreneurial clusters in horticultural, technology and environmental skills.
+          </p>
+          <p className='main-lead my-3'>
+            Our vision is to enhance our capacity and capability in the Avocado Capital of New Zealand in the Western Bay of Plenty to benefit New Zealand and the world to help deliver healthy foods from the world’s most sustainable systems. Bringing sustainable science and technology to our community.
+          </p>
+          <p className='main-lead my-3'>
+            Our smart futures starts here.
+          </p>
+        </section>
+        <section>
+          <h2 className='text-center mt-5 mb-3 heading-lg'>What are Clusters?</h2>
+          <p className='main-lead'>
+            Cluster are a critical mass of interconnected businesses, suppliers and associated institutions that collaborate to solve common problems and to benefit from scale. Whilst there are different type of clusters we have chosen to form 3 cluster aligned to the capabilities within our region – Hort tech, environmental and technology.
+          </p>
+        </section>
+        <section>
+          <h2 className='text-center mt-5 mb-5 heading-lg'>Our current Clusters</h2>
+          <div className='d-flex justify-content-evenly flex-wrap'>
+            <ClusterCard name="Horticulture" imgSrc="/images/thumbnails/cluster-cards/horticultural.jpg" link="/clusters/horticultural">
+              <p className='lead text-center'>
+                See what we're doing in the horticultural sector.
+              </p>
+            </ClusterCard>
+            <ClusterCard name="Environment" imgSrc="/images/thumbnails/cluster-cards/environmental.jpg" link="/clusters/environmental">
+              <p className='lead text-center'>
+                See what we're doing for the Environment.
+              </p>
+            </ClusterCard>
+            <ClusterCard name="Technology" imgSrc="/images/thumbnails/cluster-cards/technology.jpg" link="/clusters/technology">
+              <p className='lead text-center'>
+                Learn about our current technologies.
+              </p>
+            </ClusterCard>
+          </div>
+        </section>
+        <section>
+          <h2 className='text-center mt-5 mb-5 heading-lg'>Latest Research papers</h2>
+          <ArticleCardGrid articles={research_papers}/>
+          <h2 className='text-center mt-5 mb-5 heading-lg'>Latest Case studies</h2>
+          <ArticleCardGrid articles={case_studies}/>
+          <h2 className='text-center mt-5 mb-5 heading-lg'>Latest News Events and Podcasts</h2>
+          <ArticleCardGrid articles={news_events_and_podcasts}/>
+        </section>
       </Container>
+      <Footer/>
     </>
   )
 }
 
 export default Home;
+
+export async function getStaticProps() {
+  const query = qs.stringify({
+    populate: {
+      clusters: {
+        fields: ['name']
+      },
+      thumbnail_image: {
+        fields: ['url']
+      }
+    }
+  }, {
+    encodeValuesOnly: true,
+  });
+  const research_papers = getTop4Articles(sortArticlesByDate(await fetchAPI(`/research-papers?${query}`)));
+
+  const case_studies = getTop4Articles(sortArticlesByDate(await fetchAPI(`/case-studies?${query}`)));
+  
+  const news = await fetchAPI(`/news?${query}`);
+  
+  const events = await fetchAPI(`/events?${query}`);
+  
+  const podcasts = await fetchAPI(`/podcasts?${query}`);
+
+  const news_events_and_podcasts = getTop4Articles(sortArticlesByDate([...news, ...events, ...podcasts]));
+
+  return {
+    props: {
+      research_papers,
+      case_studies,
+      news_events_and_podcasts
+    }
+  }
+}

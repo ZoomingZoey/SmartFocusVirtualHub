@@ -39,7 +39,7 @@ const HubNavBar = () => {
             <Link href="/research-papers-and-case-studies" passHref><Nav.Link>Research papers and Case studies</Nav.Link></Link>
             <Link href="/resources" passHref><Nav.Link>Resources</Nav.Link></Link>
             <Link href="/education" passHref><Nav.Link>Education</Nav.Link></Link>
-            <Link href="/news-and-events" passHref><Nav.Link>News and Events</Nav.Link></Link>
+            <Link href="/news-events-and-podcasts" passHref><Nav.Link>News Events and Podcasts</Nav.Link></Link>
             <Link href="/portal" passHref><Nav.Link>Portal</Nav.Link></Link>
           </Nav>
         </Navbar.Collapse>

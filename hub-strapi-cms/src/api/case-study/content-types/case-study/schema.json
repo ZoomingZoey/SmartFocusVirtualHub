@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_studies",
+  "info": {
+    "singularName": "case-study",
+    "pluralName": "case-studies",
+    "displayName": "Case Study",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "backdated_publish_date": {
+      "type": "date",
+      "required": false,
+      "unique": false
+    },
+    "thumbnail_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "header_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "article-contents.article-image",
+        "article-contents.article-text",
+        "article-contents.article-video"
+      ],
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "content_type": {
+      "type": "string",
+      "default": "case study",
+      "required": true,
+      "unique": false
+    },
+    "clusters": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cluster.cluster",
+      "mappedBy": "case_studies"
+    }
+  }
+}

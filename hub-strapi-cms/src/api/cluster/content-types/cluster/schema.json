@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clusters",
+  "info": {
+    "singularName": "cluster",
+    "pluralName": "clusters",
+    "displayName": "Cluster",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "partners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner.partner",
+      "inversedBy": "clusters"
+    },
+    "case_studies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::case-study.case-study",
+      "inversedBy": "clusters"
+    },
+    "news_articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-article.news-article",
+      "mappedBy": "clusters"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "clusters"
+    },
+    "podcasts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::podcast.podcast",
+      "inversedBy": "clusters"
+    },
+    "research_papers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-paper.research-paper",
+      "inversedBy": "clusters"
+    }
+  }
+}

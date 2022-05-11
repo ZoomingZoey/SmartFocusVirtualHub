@@ -1,0 +1,11 @@
+@use '../custom' as *;
+
+.team-member-card {
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 25px;
+}
+
+.team-member-card:last-child {
+  margin-bottom: 0;
+}

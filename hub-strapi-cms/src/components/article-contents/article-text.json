@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_article_contents_article_texts",
+  "info": {
+    "displayName": "ArticleText",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "text_content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

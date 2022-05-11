@@ -1,0 +1,52 @@
+@use './custom' as *;
+
+.intro-heading {
+  text-shadow: 2px 2px 8px #000000;
+  font-size: 42px;
+  font-weight: 400;
+  font-family: 'Fredoka', sans-serif;
+  @include media-breakpoint-up(sm) {
+    font-size: 56px;
+  }
+}
+
+.heading-lg {
+  font-size: 32px;
+  font-weight: 500;
+  font-family: 'Fredoka', sans-serif;
+  @include media-breakpoint-up(sm) {
+    font-size: 42px;
+  }
+}
+
+.heading-sm {
+  font-size: 26px;
+  font-weight: 500;
+  font-family: 'Fredoka', sans-serif;
+  @include media-breakpoint-up(sm) {
+    font-size: 30px;
+  }
+}
+
+.date {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Fredoka', sans-serif;
+  text-shadow: 2px 2px 8px #000000;
+  @include media-breakpoint-up(sm) {
+    font-size: 30px;
+  }
+}
+
+.main-lead {
+  font-size: 18px;
+  font-weight: 400;
+  @include media-breakpoint-up(sm) {
+    font-size: 24px;
+  }
+}
+
+.lead {
+  font-size: 18px;
+  font-weight: 400;
+}
