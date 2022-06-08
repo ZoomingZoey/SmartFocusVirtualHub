@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_site_services",
+  "info": {
+    "displayName": "Service",
+    "icon": "cogs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

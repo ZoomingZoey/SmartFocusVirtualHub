@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "clusters_pages",
+  "info": {
+    "singularName": "clusters-page",
+    "pluralName": "clusters-pages",
+    "displayName": "Clusters Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "clusters_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "site.text-section"
+      ],
+      "required": true
+    }
+  }
+}

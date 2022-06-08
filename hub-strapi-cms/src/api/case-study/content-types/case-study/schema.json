@@ -59,7 +59,7 @@
     },
     "content_type": {
       "type": "string",
-      "default": "case study",
+      "default": "case-study",
       "required": true,
       "unique": false
     },
@@ -68,6 +68,10 @@
       "relation": "manyToMany",
       "target": "api::cluster.cluster",
       "mappedBy": "case_studies"
+    },
+    "keywords": {
+      "type": "json",
+      "required": true
     }
   }
 }

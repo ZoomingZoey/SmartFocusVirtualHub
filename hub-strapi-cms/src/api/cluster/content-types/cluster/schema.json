@@ -45,13 +45,13 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::podcast.podcast",
-      "inversedBy": "clusters"
+      "mappedBy": "clusters"
     },
     "research_papers": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::research-paper.research-paper",
-      "inversedBy": "clusters"
+      "mappedBy": "clusters"
     }
   }
 }

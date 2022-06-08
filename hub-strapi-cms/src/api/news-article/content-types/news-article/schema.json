@@ -65,6 +65,10 @@
       "relation": "manyToMany",
       "target": "api::cluster.cluster",
       "inversedBy": "news_articles"
+    },
+    "keywords": {
+      "type": "json",
+      "required": true
     }
   }
 }

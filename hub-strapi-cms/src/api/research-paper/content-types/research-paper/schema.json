@@ -36,7 +36,7 @@
     "header_image": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ]
@@ -58,13 +58,17 @@
     "content_type": {
       "type": "string",
       "required": true,
-      "default": "research paper"
+      "default": "research-paper"
     },
     "clusters": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::cluster.cluster",
       "inversedBy": "research_papers"
+    },
+    "keywords": {
+      "type": "json",
+      "required": true
     }
   }
 }

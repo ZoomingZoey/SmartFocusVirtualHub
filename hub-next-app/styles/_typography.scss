@@ -38,14 +38,6 @@
   }
 }
 
-.main-lead {
-  font-size: 18px;
-  font-weight: 400;
-  @include media-breakpoint-up(sm) {
-    font-size: 24px;
-  }
-}
-
 .lead {
   font-size: 18px;
   font-weight: 400;

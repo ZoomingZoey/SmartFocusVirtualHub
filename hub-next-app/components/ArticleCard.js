@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { getStrapiURL } from '../lib/api';
 
-const ArticleCard = ({id, title, titlePrefix, route, slug, imageFilename}) => {
+const ArticleCard = ({ id, title, typePrefix, route, slug, imageSrc }) => {
   return (
     <div>
       <Link key={id} href={`${route}/${slug}`}>
@@ -12,9 +12,9 @@ const ArticleCard = ({id, title, titlePrefix, route, slug, imageFilename}) => {
             aspectRatio="1:1"
             containerClassNames="mb-3"
             imageClassNames="article-card-image shadow rounded"
-            imageSrc={getStrapiURL(imageFilename)}
+            src={getStrapiURL(imageSrc)}
           />
-          <h4>{titlePrefix && (<strong>{titlePrefix}:</strong>)} {title}</h4>
+          <h4>{typePrefix && (<strong>{typePrefix}:</strong>)} {title}</h4>
         </a>
         
       </Link>

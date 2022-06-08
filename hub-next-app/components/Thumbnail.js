@@ -17,7 +17,7 @@ const Thumbnail = (props) => {
 
   const targetStyling = {
     // if the background prop is set use it
-    backgroundImage: `url("${props.imageSrc}")`,
+    backgroundImage: `url("${props.src}")`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",

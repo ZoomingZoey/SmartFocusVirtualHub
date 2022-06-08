@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+const qs = require('qs');
 
 // Import react-bootstrap components
 import {
@@ -9,7 +10,8 @@ import {
   Container,
  } from 'react-bootstrap';
 
-const HubNavBar = () => {
+const HubNavBar = ({ logo }) => {
+
   return (
     <Navbar bg="light" expand="xl" className='shadow-sm'>
       <Container>
@@ -17,7 +19,7 @@ const HubNavBar = () => {
           <Navbar.Brand>
             <img
               alt="smart focus logo"
-              src="/images/icons/logo.png"
+              src={logo}
               width="60"
               height="60"
               className="d-inline-block align-center"
@@ -36,7 +38,7 @@ const HubNavBar = () => {
               <Link href="/clusters/environmental" passHref><NavDropdown.Item>Environmental Cluster</NavDropdown.Item></Link>
               <Link href="/clusters/technology" passHref><NavDropdown.Item>Technology Cluster</NavDropdown.Item></Link>
             </NavDropdown>
-            <Link href="/research-papers-and-case-studies" passHref><Nav.Link>Research papers and Case studies</Nav.Link></Link>
+            <Link href="/research-papers-and-case-studies" passHref><Nav.Link>Research Papers and Case Studies</Nav.Link></Link>
             <Link href="/resources" passHref><Nav.Link>Resources</Nav.Link></Link>
             <Link href="/education" passHref><Nav.Link>Education</Nav.Link></Link>
             <Link href="/news-events-and-podcasts" passHref><Nav.Link>News Events and Podcasts</Nav.Link></Link>

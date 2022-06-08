@@ -14,20 +14,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "title": {
-      "type": "string",
-      "required": false,
-      "unique": false
-    },
-    "caption": {
-      "type": "text",
-      "unique": false
-    },
-    "alt_text": {
-      "type": "text",
-      "required": true,
-      "unique": false
     }
   }
 }

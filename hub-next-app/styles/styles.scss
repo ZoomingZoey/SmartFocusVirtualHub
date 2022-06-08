@@ -9,6 +9,10 @@
 @use './components/team-member-card';
 @use './components/get-in-touch-form';
 @use './components/podcast-media-controller';
+@use './components/service';
+@use './components/event-details';
+@use './components/coming-soon-message';
+@use './components/footer';
 
 // import common
 @use './common';

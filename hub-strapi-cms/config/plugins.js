@@ -4,7 +4,7 @@ module.exports = ({ env }) => ({
     enabled: true,
     config: {
       contentTypes: {
-        'research paper': {
+        'research-paper': {
           field: 'slug',
           references: 'title'
         },

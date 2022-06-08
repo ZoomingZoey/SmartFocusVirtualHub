@@ -13,7 +13,6 @@ const PodcastMediaController = ({ media }) => {
   const [playbackSpeedIndex, setPlaybackSpeedIndex] = useState(0);
   const [muted, setMuted] = useState(false);
   const audioRef = useRef(null);
-  const progressRef = useRef(null);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
 
@@ -61,7 +60,7 @@ const PodcastMediaController = ({ media }) => {
   return (
     <div className="podcast-media-controller bg-dark rounded p-2">
       <div className="scrubber">
-        <ProgressBar min={0} now={progress} max={duration} onClick={handleProgress} ref={progressRef}/>
+        <ProgressBar min={0} now={progress} max={duration} onClick={handleProgress}/>
         <div className="d-flex justify-content-between">
           <span className="elapsed-time time">{toHHMMSS(progress)}</span>
           <span className="duration time">{toHHMMSS(duration)}</span>

@@ -19,7 +19,7 @@
     },
     "description": {
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true
     },
     "start_date": {
@@ -78,6 +78,10 @@
     },
     "event_website": {
       "type": "string",
+      "required": true
+    },
+    "keywords": {
+      "type": "json",
       "required": true
     }
   }

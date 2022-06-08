@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_events_and_podcasts_pages",
+  "info": {
+    "singularName": "news-events-and-podcasts-page",
+    "pluralName": "news-events-and-podcasts-pages",
+    "displayName": "News Events and Podcasts Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "site.text-section"
+      ],
+      "required": true
+    }
+  }
+}
